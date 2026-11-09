@@ -1,0 +1,30 @@
+item,value,note
+results_code_commit,2adbfd7,"last commit touching models/F, models/common/R, models/E/R, pipeline/hmis, papers/F/results_keys.md"
+results_code_dirty,FALSE,TRUE if TRACKED files of those paths had uncommitted changes when results.json was assembled (untracked files never count)
+seed,20261026,SEED_F (models/F/R/common_f.R)
+n_keys,297,keys in results.json (= contract)
+input:data/derived/hmis/perinatal_unit_month.csv.gz,bf362346e6e5eb69ff1d81e8b3cdb91602e378e7cdd6ccc24516f894cf357aa0,sha256 (CRLF -> LF for text; gz as is); untracked
+input:data/derived/hmis/perinatal_model.csv.gz,b71bf5bb811d75bdf042aa0d7219deec4e1649af11d2cb7e5a61302690c983b7,sha256 (CRLF -> LF for text; gz as is); untracked
+input:data/derived/hmis/perinatal_release_panel.csv.gz,eb0d58d641f0cf2179bc02626ba4bbfa9ddce5dfebb609f46d88651d2bdc1ad8,"sha256 (CRLF -> LF for text; gz as is); committed, clean"
+input:data/derived/hmis/_parts_f/national_month.csv.gz,de4bb79974d2a4b80817019e9cace80cbd629dd73a0af93b310db1a7bdf0466b,sha256 (CRLF -> LF for text; gz as is); untracked
+input:pipeline/reference/hmis_link_units.csv,3e0b6eefe6b649edd3d55597e6772d1af653229c2bcb0dd375a019275d4a79e9,"sha256 (CRLF -> LF for text; gz as is); committed, clean"
+input:pipeline/reference/hmis_perinatal_crosswalk.csv,b7e80092ad7ae6401c586b113a9ed6528f829bd2fe00727184df1af1b79c31cd,"sha256 (CRLF -> LF for text; gz as is); committed, clean"
+input:data/derived/hmis/perinatal_gate_summary.csv,692088db1a671f6b3debe0d9451c3aacb2c7dc7f32c7b120c1762b7e5e289183,"sha256 (CRLF -> LF for text; gz as is); committed, clean"
+input:data/derived/hmis/perinatal_break_ratio_2017.csv,ad73c1c4c90e8eaa85ff4f7fd29cc3bd08d497df521ce7e81a224755a6c8a1e2,"sha256 (CRLF -> LF for text; gz as is); committed, clean"
+input:data/derived/hmis/perinatal_fuzzy_matches.csv,bc0a93be0667ea58524c71716c0baa7cd4dc154218c64417c66aa531791924e4,"sha256 (CRLF -> LF for text; gz as is); committed, clean"
+input:data/derived/hmis/perinatal_units_report.md,0961e911b4c5b67567a70b09c05b05e16de53fc1bf4a3c2b266da4603554350b,"sha256 (CRLF -> LF for text; gz as is); committed, clean"
+step:power,cached,models/F/01_power.R; 20 keys
+cache:power,35138a2ff63b31207e282a4cbc899d5c6dcc800c1503378c1296040eb6efdbf8,sha256 of models/F/_cache/power.rds (git-ignored)
+output:papers/F/output/timing.csv,bb04ab724491022b819bd66ffcb04a159fd61f010512f9248ee92def4acd3f03,"sha256 (CRLF -> LF); consistent with the cache; committed, clean"
+output:papers/F/output/power.csv,79c20865cded9f3eedbce08c63c0aaa09100f8b48b2e7b110ccc062ee7a7eb92,"sha256 (CRLF -> LF); consistent with the cache; committed, clean"
+step:primary,cached,models/F/02_primary.R; 72 keys
+cache:primary,cb62c1d9945be5e246f8a41f9f521c1d41c78b6394ff3c4171c0b4415adab2f0,sha256 of models/F/_cache/primary.rds (git-ignored)
+output:papers/F/output/primary_estimates.csv,0279d502ef5adfc2aacefaa8ab94ba771e0c3a13f38005cfc34f03b6635497ac,"sha256 (CRLF -> LF); consistent with the cache; committed, clean"
+output:papers/F/output/verdicts.csv,c2dda4f1af9d880345173efff0538dfd6ebcae28ea98078812a7729c838c87f4,"sha256 (CRLF -> LF); consistent with the cache; committed, clean"
+step:secondary,cached,models/F/03_secondary.R; 118 keys
+cache:secondary,f9ac4834a047024e2c4a1d3c42cfd58a0ebe90ba7af331d478416264f806bef0,sha256 of models/F/_cache/secondary_entries.rds (git-ignored)
+output:papers/F/output/selection.csv,87d93bc558db647a92172bef08565adeb849e3dee629c0c768f52fbcfdf1d1e9,"sha256 (CRLF -> LF); consistent with the cache; committed, clean"
+output:papers/F/output/secondary.csv,8c57bbbce2900ad0408c3678fb3c5d5c1d3c925b0443bd72a84194a65e0b8c97,"sha256 (CRLF -> LF); consistent with the cache; committed, clean"
+output:papers/F/output/sensitivity.csv,5d57c0f9fc5d1a51ab5e650df1c37f48be5eadfe5cb1bc65f6c9f8825a48553f,"sha256 (CRLF -> LF); consistent with the cache; committed, clean"
+output:papers/F/output/trimester.csv,802df77383dbf6c80c9bb552e844b5e3149ed274d951a66545bd6a98848f98a7,"sha256 (CRLF -> LF); consistent with the cache; committed, clean"
+step:reading,derived,models/F/R/results_f.R; 4 keys

@@ -1,0 +1,32 @@
+{
+  "title": "El Niño and perinatal outcomes in India: HMIS link-unit-month panel, code, results contract and aggregate data",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "description": "<p>Code, every reported number and the aggregate data of a pre-specified link-unit-month analysis of local heat, rainfall deficit and El Niño in pregnancy and reported stillbirths and low birth weight in India (manuscript; citation to follow), from routine Health Management Information System (HMIS) district reports linked to stable district units, April 2012 to February 2020. Negative binomial models relate the stillbirth rate and the low birth weight share among weighed newborns to local heat, rainfall deficit and the El Niño phase during gestation, with within-month comparisons across units, negative-control exposures after birth and six pre-specified tests under verdict rules fixed in a results contract committed before any exposure model was fitted.</p><p>Contents: the Python HMIS pipeline with synthetic test fixtures; the R analysis; the results contract and its dated amendments; every reported number (results.json) with its traceability table; the release panel (counts of 1 to 4 suppressed, with complementary suppression), climate by link unit and month, aggregate outputs and figure data. Raw HMIS workbooks are not redistributed and no FY2020-21 value is included; the HMIS data carry the Government Open Data License – India attribution.</p>",
+  "creators": [
+    {
+      "name": "Siddalingaiah, H S",
+      "affiliation": "Department of Community Medicine, Shridevi Institute of Medical Sciences and Research Hospital, Tumakuru, Karnataka, India",
+      "orcid": "0000-0002-4771-8285"
+    }
+  ],
+  "license": "mit",
+  "keywords": [
+    "stillbirth",
+    "low birth weight",
+    "extreme heat",
+    "El Niño–Southern Oscillation",
+    "routine health information systems",
+    "HMIS",
+    "India",
+    "climate and health"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/hssling/elnino-perinatal-hmis-india",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Code: MIT licence. Results, aggregate data and derived tables: CC BY 4.0 (see DATA_LICENSE.md); HMIS-derived values carry the Government Open Data License – India attribution (Health Management Information System (HMIS), Ministry of Health and Family Welfare, Government of India; via data.gov.in / hmis.mohfw.gov.in; Government Open Data License – India). Raw HMIS files, IMD grids, FY2020-21 values and district-level values are not included."
+}

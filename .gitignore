@@ -1,0 +1,33 @@
+# Raw downloads, controlled data and user-supplied inputs (never commit)
+data/raw/
+data/external/
+*.parquet
+*.zip
+*.dta
+*.DTA
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+# R
+.Rhistory
+.RData
+.Rproj.user/
+models/renv/library/
+models/renv/local/
+models/renv/staging/
+models/F/_cache/
+models/F/logs/
+# Pending results and figure images (rebuilt from the figure data)
+papers/F/results.pending.json
+papers/F/output/provenance.pending.csv
+papers/F/figures/*.png
+papers/F/figures/*.tif
+# OS / editors
+.DS_Store
+Thumbs.db
+~$*
+.vscode/
+.idea/

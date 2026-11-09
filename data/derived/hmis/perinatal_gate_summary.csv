@@ -1,0 +1,10 @@
+variable,scope,unit_months,reported,masked_district_sum,masked_plausibility,masked_national_total,masked_partial_component,masked_fy_total,masked_component_sum,masked_rate_order,masked_rate_sbr,masked_rate_lbw_band,kept_low,masked,masked_share,masked_share_window,comp_lt_1,entering_models,dropped,excluded_units,fy2021_split,note
+lb,primary,62952,62842,0,28,0,0,0,0,0,0,0,53,28,0.000445562,0.000450269,10,62804,False,0,0,
+lb_m,primary,62952,62842,0,24,0,0,0,0,0,0,0,53,24,0.00038191,0.000385945,11,62807,False,0,0,
+lb_f,primary,62952,62841,0,26,0,0,0,0,0,0,0,56,26,0.000413743,0.000418114,11,62804,False,0,0,
+sb,primary,62952,62658,0,244,0,0,0,0,0,14,0,556,258,0.00411759,0.00412897,28,62372,False,0,0,
+wt,primary,62952,62813,0,24,0,0,0,0,196,0,0,103,220,0.00350246,0.0035073,11,62582,False,0,0,
+lbw,primary,62952,62762,0,743,0,0,0,0,208,0,594,683,1545,0.0246168,0.0248128,19,61198,False,7,0,
+home,primary,62952,61994,0,938,0,433,0,0,0,0,0,1188,1371,0.022115,0.0223182,71,60552,False,5,0,
+inst,primary,62952,62776,0,74,0,532,0,0,0,0,0,152,606,0.00965337,0.00975547,11,62159,False,0,0,
+preterm,primary,23652,23556,0,435,0,0,0,0,0,0,0,875,435,0.0184666,0.018559,17,23104,False,6,0,

@@ -1,0 +1,5 @@
+fit,outcome,minutes,re_used,time_re,state_ym,converged,n_rows,n_units
+model_l_primary,sb,17.3666666666667,us,,TRUE,TRUE,59627,653
+model_t_primary,sb,5.96,us,ar1,FALSE,TRUE,61357,656
+sim_l,sb,12.75,int,,FALSE,TRUE,59627,653
+sim_t,sb,5.40833333333333,int,iid,FALSE,TRUE,61357,656
