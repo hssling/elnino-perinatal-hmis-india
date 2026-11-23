@@ -16,7 +16,7 @@ Please cite the paper once it is published, and this repository through `CITATIO
 A results contract (`papers/F/results_keys.md`) listing every reported quantity with its definition, source, display and the verdict rules was committed before any exposure model was fitted; later changes are dated amendments in the same file. The study was not registered in an external registry. The design specification is included (the implementation plan, an internal working document, is not):
 
 - `docs/superpowers/specs/2026-10-26-paper-f-perinatal-hmis-design.md`: design specification.
-- `papers/F/results_keys.md`: the results contract and its amendments (435 keys).
+- `papers/F/results_keys.md`: the results contract and its amendments (464 keys).
 
 Timeline, from the history of the author's working repository (first commit of each file; times are IST, UTC+05:30):
 
@@ -48,11 +48,11 @@ docs/superpowers/specs/            2026-10-26-paper-f-perinatal-hmis-design.md
 models/                            .Rprofile, DESCRIPTION, renv.lock, setup.R
 models/D/R/                        contract.R
 models/E/R/                        common_e.R, monthly.R, power.R, secondary.R, verdicts.R
-models/F/                          8 files
+models/F/                          9 files
                                    # R analysis: run_all.R and steps 00-04
 models/F/R/                        8 files
                                    # helpers: perinatal panel, power, primary and secondary fits, verdicts, results
-models/F/output/                   15 files
+models/F/output/                   16 files
 models/common/R/                   8 files
 models/common/tests/               run.R
 models/common/tests/testthat/      9 files
@@ -101,7 +101,7 @@ No district-level HMIS value is included, and no FY2020-21 value (see above).
 
 All tables are UTF-8 CSV; missing is an empty cell, never 0.
 
-- `papers/F/results.json`: every number reported in the paper, as `{"<key>": {"value", "display", "script", "description"}}` (435 keys); `papers/F/traceability.csv` lists them with the script that wrote each; `python papers/F/check_results_keys.py` cross-checks the keys against the contract.
+- `papers/F/results.json`: every number reported in the paper, as `{"<key>": {"value", "display", "script", "description"}}` (464 keys); `papers/F/traceability.csv` lists them with the script that wrote each; `python papers/F/check_results_keys.py` cross-checks the keys against the contract.
 - `papers/F/output/`: primary estimates, trimester and timing analyses, selection audit, sensitivity analyses, secondary outcomes, power and `provenance.csv`.
 - `papers/F/figures/data/`, `papers/F/tables/`: the data behind each figure and table; `make_figures.py` and `make_tables.py` draw them.
 
@@ -110,5 +110,5 @@ All tables are UTF-8 CSV; missing is an empty cell, never 0.
 This is a release copy: it has no history of the author's working repository, none of the model caches or logs, and none of the district-level model tables (`perinatal_unit_month.csv.gz`, `perinatal_model.csv.gz`) from which the models were fitted. Those tables are rebuilt from the portal files, which are not included: `python -I pipeline/hmis/run.py fetch` downloads them and the steps of `pipeline/hmis/run_f.py` (see its docstring) parse and assemble them. Requirements: Python 3.10 or later with `pip install -r requirements.txt`; R 4.5.3 with the packages of `models/renv.lock` (`cd models`, then `Rscript setup.R`).
 
 1. **Python tests.** `python -m pytest` runs the tests of the perinatal pipeline on synthetic fixtures.
-2. **Key check.** `python papers/F/check_results_keys.py` checks that `papers/F/results.json` holds exactly the 435 keys of the contract.
+2. **Key check.** `python papers/F/check_results_keys.py` checks that `papers/F/results.json` holds exactly the 464 keys of the contract.
 3. **Figures and tables.** `python papers/F/figures/make_figures.py` and `python papers/F/tables/make_tables.py` redraw them from the included data (the FY2020-21 months are not in the data).

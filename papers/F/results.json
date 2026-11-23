@@ -2608,5 +2608,216 @@
     "display": "1.00 (95% CI 1.00, 1.01)",
     "script": "models/F/05_weekly.R",
     "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 1.00491 (95% CI 0.995834, 1.01408); log RR 0.00490238, SE 0.00463149; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.desc.births": {
+    "value": 164662898.0,
+    "display": "164,662,898",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Total births (live births plus stillbirths) in the analysed unit-months"
+  },
+  "F.w.desc.stillbirths": {
+    "value": 2281300.0,
+    "display": "2,281,300",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Stillbirths in the analysed unit-months"
+  },
+  "F.w.desc.rate": {
+    "value": 13.85436566287082,
+    "display": "13.9",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Stillbirths per 1,000 total births, analysed unit-months"
+  },
+  "F.w.desc.rate_low": {
+    "value": 14.577322741468356,
+    "display": "14.6",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Stillbirths per 1,000 total births in unit-months in the lowest third of the gestation-mean heat anomaly (-1.76 to 0.11 °C)"
+  },
+  "F.w.desc.tert_low_range": {
+    "value": [
+      -1.7636459924999996,
+      0.11455397250000003
+    ],
+    "display": "−1.76 to 0.11 °C",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Range of the gestation-mean heat anomaly in the lowest third"
+  },
+  "F.w.desc.rate_mid": {
+    "value": 13.290070726438499,
+    "display": "13.3",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Stillbirths per 1,000 total births in unit-months in the middle third of the gestation-mean heat anomaly (0.11 to 0.58 °C)"
+  },
+  "F.w.desc.tert_mid_range": {
+    "value": [
+      0.11456699999999989,
+      0.5788631
+    ],
+    "display": "0.11 to 0.58 °C",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Range of the gestation-mean heat anomaly in the middle third"
+  },
+  "F.w.desc.rate_high": {
+    "value": 13.595464090585356,
+    "display": "13.6",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Stillbirths per 1,000 total births in unit-months in the highest third of the gestation-mean heat anomaly (0.58 to 2.29 °C)"
+  },
+  "F.w.desc.tert_high_range": {
+    "value": [
+      0.57886705,
+      2.2899825
+    ],
+    "display": "0.58 to 2.29 °C",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Range of the gestation-mean heat anomaly in the highest third"
+  },
+  "F.w.desc.heat_mean_sd": {
+    "value": [
+      0.3223083306995413,
+      0.5400034955652133
+    ],
+    "display": "0.32 °C (0.54)",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Mean (SD) of the gestation-mean maximum-temperature anomaly, analysed unit-months"
+  },
+  "F.w.desc.heat_sd_within": {
+    "value": 0.41905841173856206,
+    "display": "0.42 °C",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "SD of the gestation-mean heat anomaly within year-month (the variation the model uses)"
+  },
+  "F.w.desc.dry_mean_sd": {
+    "value": [
+      -0.4356265028421967,
+      0.23424078994987416
+    ],
+    "display": "−0.44 (0.23)",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Mean (SD) of the gestation-mean SPI-28 deficit (min(SPI-28, 0)), analysed unit-months"
+  },
+  "F.w.desc.dry_sd_within": {
+    "value": 0.2196915155341029,
+    "display": "0.22",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "SD of the gestation-mean SPI-28 deficit within year-month"
+  },
+  "F.w.desc.persd.heat.t3": {
+    "value": [
+      1.0056639508629857,
+      1.0012171757270552,
+      1.010130331654847
+    ],
+    "display": "1.01 (95% CI 1.00, 1.01)",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Cumulative RR per within-year-month SD of the gestation-mean heat exposure sustained over block t3"
+  },
+  "F.w.desc.persd.heat.gest": {
+    "value": [
+      1.0189439362535597,
+      1.0063766806958556,
+      1.0316684208659956
+    ],
+    "display": "1.02 (95% CI 1.01, 1.03)",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Cumulative RR per within-year-month SD of the gestation-mean heat exposure sustained over block gest"
+  },
+  "F.w.desc.persd.dry.t3": {
+    "value": [
+      0.9956849814155133,
+      0.9916228874232598,
+      0.9997637325048113
+    ],
+    "display": "1.00 (95% CI 0.99, 1.00)",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Cumulative RR per within-year-month SD of the gestation-mean dry exposure sustained over block t3"
+  },
+  "F.w.desc.persd.dry.gest": {
+    "value": [
+      0.9939582944487015,
+      0.9828586821625974,
+      1.0051831537071798
+    ],
+    "display": "0.99 (95% CI 0.98, 1.01)",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Cumulative RR per within-year-month SD of the gestation-mean dry exposure sustained over block gest"
+  },
+  "F.w.desc.persd.evalue.heat.t3": {
+    "value": [
+      1.0811360066344033,
+      1.0361264473293914
+    ],
+    "display": "1.08 (1.04)",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "E-value (and for the CI limit nearer 1) for the per-SD heat RR, block t3"
+  },
+  "F.w.desc.persd.evalue.heat.gest": {
+    "value": [
+      1.1578784855000976,
+      1.0864849995681958
+    ],
+    "display": "1.16 (1.09)",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "E-value (and for the CI limit nearer 1) for the per-SD heat RR, block gest"
+  },
+  "F.w.desc.missing_n": {
+    "value": 1617,
+    "display": "1,617",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Unit-months with a missing stillbirth, total-birth or exposure value"
+  },
+  "F.w.desc.missing_share": {
+    "value": 0.025907233838019707,
+    "display": "2.6%",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Share of the panel with a missing value"
+  },
+  "F.w.desc.inelig_n": {
+    "value": 333,
+    "display": "333",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Unit-months with fewer than 20 total births (ineligible)"
+  },
+  "F.w.desc.inelig_share": {
+    "value": 0.005335255948089402,
+    "display": "0.5%",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Share of the panel ineligible (fewer than 20 births)"
+  },
+  "F.w.desc.missing_inst_share": {
+    "value": 0.05006809,
+    "display": "5.0%",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Share of the panel with institutional share of deliveries missing (inclusion-weight model only)"
+  },
+  "F.w.desc.missing_lb": {
+    "value": 0.00429384,
+    "display": "0.4%",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Share of the panel with live births missing (inclusion-weight model only)"
+  },
+  "F.w.desc.lb_median_incl": {
+    "value": 2098.0,
+    "display": "2,098",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Median live births per unit-month, included unit-months"
+  },
+  "F.w.desc.lb_median_excl": {
+    "value": 1239.0,
+    "display": "1,239",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Median live births per unit-month, excluded unit-months"
+  },
+  "F.w.desc.aic_diff": {
+    "value": 1746.7947229319252,
+    "display": "1,746.8",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "AIC of the pooled minus the season-specific model"
+  },
+  "F.w.desc.n_units_analysed": {
+    "value": 653,
+    "display": "653",
+    "script": "models/F/06_weekly_descriptives.py",
+    "description": "Units with an analysed unit-month"
   }
 }

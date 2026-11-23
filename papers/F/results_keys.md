@@ -350,3 +350,37 @@ Written after the primary, secondary and sensitivity estimates of Tasks 10 and 1
 | `F.w.missing.{sb,tb,heat,dry,heat_nc8,dry_nc8,cc_loss_panel,cc_loss_eligible}` | pct1 | Share missing per variable over the primary window; complete-case loss (panel and eligible rows) |
 | `F.w.missing.method` | text | `complete-case analysis` or `multiple imputation` |
 | `F.w.flow.{n_districts,n_link_units,n_unit_months,excl_gate,excl_outcome,excl_denom,excl_exposure,n_analysed,n_units_analysed,n_fit_dropped}` | int | Flow-chart counts |
+
+## 16. Weekly-analysis descriptives (amendment 2026-11-23; outside the R key check)
+
+Descriptive and derived quantities for the weekly analysis, computed without fitting any model by `models/F/06_weekly_descriptives.py` (run after `models/F/05_weekly.R --step=results` and `04_results.R`; it appends these keys to `papers/F/results.json`, keeping every existing byte, and writes `models/F/output/w_descriptives.csv`). They are listed below as a list, not as key-table rows, so that `contract_keys()` and the 435-key check of `04_results.R` are unchanged; re-run the script after any R results step. It reproduces the analysed sample and stops if its size differs from `F.w.flow.n_analysed`. Per-SD quantities rescale the cumulative log risk ratios of `w_cumulative.csv` by the within-year-month SD of the gestation-mean exposure; E-values use the VanderWeele–Ding formula.
+
+- desc.births: Total births (live births plus stillbirths) in the analysed unit-months (display: 164,662,898)
+- desc.stillbirths: Stillbirths in the analysed unit-months (display: 2,281,300)
+- desc.rate: Stillbirths per 1,000 total births, analysed unit-months (display: 13.9)
+- desc.rate_low: Stillbirths per 1,000 total births in unit-months in the lowest third of the gestation-mean heat anomaly (-1.76 to 0.11 °C) (display: 14.6)
+- desc.tert_low_range: Range of the gestation-mean heat anomaly in the lowest third (display: −1.76 to 0.11 °C)
+- desc.rate_mid: Stillbirths per 1,000 total births in unit-months in the middle third of the gestation-mean heat anomaly (0.11 to 0.58 °C) (display: 13.3)
+- desc.tert_mid_range: Range of the gestation-mean heat anomaly in the middle third (display: 0.11 to 0.58 °C)
+- desc.rate_high: Stillbirths per 1,000 total births in unit-months in the highest third of the gestation-mean heat anomaly (0.58 to 2.29 °C) (display: 13.6)
+- desc.tert_high_range: Range of the gestation-mean heat anomaly in the highest third (display: 0.58 to 2.29 °C)
+- desc.heat_mean_sd: Mean (SD) of the gestation-mean maximum-temperature anomaly, analysed unit-months (display: 0.32 °C (0.54))
+- desc.heat_sd_within: SD of the gestation-mean heat anomaly within year-month (the variation the model uses) (display: 0.42 °C)
+- desc.dry_mean_sd: Mean (SD) of the gestation-mean SPI-28 deficit (min(SPI-28, 0)), analysed unit-months (display: −0.44 (0.23))
+- desc.dry_sd_within: SD of the gestation-mean SPI-28 deficit within year-month (display: 0.22)
+- desc.persd.heat.t3: Cumulative RR per within-year-month SD of the gestation-mean heat exposure sustained over block t3 (display: 1.01 (95% CI 1.00, 1.01))
+- desc.persd.heat.gest: Cumulative RR per within-year-month SD of the gestation-mean heat exposure sustained over block gest (display: 1.02 (95% CI 1.01, 1.03))
+- desc.persd.dry.t3: Cumulative RR per within-year-month SD of the gestation-mean dry exposure sustained over block t3 (display: 1.00 (95% CI 0.99, 1.00))
+- desc.persd.dry.gest: Cumulative RR per within-year-month SD of the gestation-mean dry exposure sustained over block gest (display: 0.99 (95% CI 0.98, 1.01))
+- desc.persd.evalue.heat.t3: E-value (and for the CI limit nearer 1) for the per-SD heat RR, block t3 (display: 1.08 (1.04))
+- desc.persd.evalue.heat.gest: E-value (and for the CI limit nearer 1) for the per-SD heat RR, block gest (display: 1.16 (1.09))
+- desc.missing_n: Unit-months with a missing stillbirth, total-birth or exposure value (display: 1,617)
+- desc.missing_share: Share of the panel with a missing value (display: 2.6%)
+- desc.inelig_n: Unit-months with fewer than 20 total births (ineligible) (display: 333)
+- desc.inelig_share: Share of the panel ineligible (fewer than 20 births) (display: 0.5%)
+- desc.missing_inst_share: Share of the panel with institutional share of deliveries missing (inclusion-weight model only) (display: 5.0%)
+- desc.missing_lb: Share of the panel with live births missing (inclusion-weight model only) (display: 0.4%)
+- desc.lb_median_incl: Median live births per unit-month, included unit-months (display: 2,098)
+- desc.lb_median_excl: Median live births per unit-month, excluded unit-months (display: 1,239)
+- desc.aic_diff: AIC of the pooled minus the season-specific model (display: 1,746.8)
+- desc.n_units_analysed: Units with an analysed unit-month (display: 653)

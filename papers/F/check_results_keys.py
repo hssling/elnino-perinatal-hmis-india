@@ -114,8 +114,12 @@ def main(argv=None, paper: Path = PAPER) -> int:
             errors.append(f"section {sec} declares {dec} keys but lists {found}")
     if sum(f for _, _, f in secs) != len(contract):
         errors.append(f"sections list {sum(f for _, _, f in secs)} keys, the contract {len(contract)}")
-    if set(res) - contract:
-        errors.append(f"results.json keys not in contract: {sorted(set(res) - contract)}")
+    # §16: keys appended by models/F/06_weekly_descriptives.py, listed as "- desc.<name>:" lines outside the R key check
+    appended = {"F.w." + m for m in re.findall(r"(?m)^- (desc\.[A-Za-z0-9_.]+):", md)}
+    if set(res) - contract - appended:
+        errors.append(f"results.json keys not in contract: {sorted(set(res) - contract - appended)}")
+    if appended - set(res):
+        errors.append(f"section 16 keys missing from results.json: {sorted(appended - set(res))}")
     if contract - set(res):
         errors.append(f"contract keys missing from results.json: {sorted(contract - set(res))}")
     if used - contract:
