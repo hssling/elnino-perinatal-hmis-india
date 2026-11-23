@@ -79,7 +79,8 @@ F_KEY_OWNERS <- list(
   primary = function(k) grepl("^F\\.(l|t)\\.", k) | grepl("^F\\.h1[01][a-c]?\\.", k),
   secondary = function(k) grepl("^F\\.(sel|pre|nc|sens)\\.", k),
   reading = function(k) grepl("^F\\.read\\.", k),
-  conclusion = function(k) k == "F.abstract.conclusion_sentence")
+  conclusion = function(k) k == "F.abstract.conclusion_sentence",
+  weekly = function(k) grepl("^F\\.w\\.", k))           # contract amendment 2026-11-23 (section 15)
 
 f_key_step <- function(keys) {
   m <- do.call(cbind, lapply(F_KEY_OWNERS, function(f) f(keys)))
@@ -656,7 +657,20 @@ f_step_defs <- function(out_dir = F_OUT, cache = F_CACHE) {
         if (!same) stop("run_all: the secondary cache (models/F/_cache/secondary_entries.rds) differs from the committed selection, secondary and sensitivity CSVs in value, description or display (different runs or an older formatter; rerun Rscript F/03_secondary.R assemble, which fits nothing)", call. = FALSE)
       },
       entries = function(obj, def) { t <- def$load(); secondary_entries(t$selection, t$secondary, t$sensitivity) },
-      data = function(obj, entries, def) def$load()))
+      data = function(obj, entries, def) def$load()),
+    # contract amendment 2026-11-23 (section 15): the F.w entries of models/F/05_weekly.R --step=results, cached in
+    # w_entries.rds; their tables are models/F/output/w_*.csv. The cached displays must equal those in results.json.
+    weekly = list(name = "weekly", script = "05_weekly.R", rds = file.path(cache, "w_entries.rds"),
+      outputs = file.path(F_DIR, "output", c("w_cumulative.csv", "w_reri.csv", "w_sensitivity.csv", "w_flow.csv")),
+      check = function(obj, def) {
+        js <- file.path(PAPER_F, "results.json")
+        cur <- if (file.exists(js)) jsonlite::fromJSON(js, simplifyVector = FALSE) else list()
+        same <- all(startsWith(names(obj), "F.w.")) && all(vapply(names(obj), function(k)
+          !is.null(cur[[k]]) && identical(cur[[k]]$display, obj[[k]]$display), NA))
+        if (!same) stop("run_all: the weekly cache (models/F/_cache/w_entries.rds) differs from the F.w displays in papers/F/results.json (different runs; rerun Rscript F/05_weekly.R --step=results)", call. = FALSE)
+      },
+      entries = function(obj, def) obj,
+      data = function(obj, entries, def) NULL))
 }
 
 # Run a producer script from <repo>/models (only in default and refit modes; never in use_cache).

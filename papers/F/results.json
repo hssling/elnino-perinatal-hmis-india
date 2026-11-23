@@ -1780,5 +1780,833 @@
     "display": "639",
     "script": "models/F/04_results.R",
     "description": "Link units with exactly one GADM district and one HMIS district in every primary FY (single_district == 1 in data/derived/hmis/perinatal_model.csv.gz (in_primary == 1; April 2012 to February 2020)). FY2020-21 was analysed as a sensitivity analysis only and contributes no descriptive value here"
+  },
+  "F.w.aic.df3": {
+    "value": 548089.145129126,
+    "display": "548089.1",
+    "script": "models/F/05_weekly.R",
+    "description": "AIC of the pooled primary model with spline df 3 (n = 60462); difference from the lowest 18.76"
+  },
+  "F.w.aic.df4": {
+    "value": 548079.802022435,
+    "display": "548079.8",
+    "script": "models/F/05_weekly.R",
+    "description": "AIC of the pooled primary model with spline df 4 (n = 60462); difference from the lowest 9.42"
+  },
+  "F.w.aic.df5": {
+    "value": 548082.589716574,
+    "display": "548082.6",
+    "script": "models/F/05_weekly.R",
+    "description": "AIC of the pooled primary model with spline df 5 (n = 60462); difference from the lowest 12.20"
+  },
+  "F.w.aic.df6": {
+    "value": 548070.386984168,
+    "display": "548070.4",
+    "script": "models/F/05_weekly.R",
+    "description": "AIC of the pooled primary model with spline df 6 (n = 60462); difference from the lowest 0.00"
+  },
+  "F.w.aic.pooled": {
+    "value": 548070.386984168,
+    "display": "548070.4",
+    "script": "models/F/05_weekly.R",
+    "description": "AIC of the pooled model at df 6 (n = 60462); difference from the lower of the two 1746.79"
+  },
+  "F.w.aic.season": {
+    "value": 546323.592261236,
+    "display": "546323.6",
+    "script": "models/F/05_weekly.R",
+    "description": "AIC of the season-specific (cross-bases interacted with season of birth) model at df 6 (n = 60462); difference from the lower of the two 0.00"
+  },
+  "F.w.df": {
+    "value": 6,
+    "display": "6",
+    "script": "models/F/05_weekly.R",
+    "description": "Degrees of freedom of the natural cubic spline lag basis over weeks 1-40 (intercept included), the same for heat and deficit, chosen by the lowest AIC among 3, 4, 5 and 6 in the pooled primary model"
+  },
+  "F.w.dry.gest": {
+    "value": 0.972792665263954,
+    "display": "0.97 (95% CI 0.92, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40 of gestation. RR 0.972793 (95% CI 0.924316, 1.02381); log RR -0.0275843, SE 0.0260804. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.dry.t1": {
+    "value": 0.997599081217237,
+    "display": "1.00 (95% CI 0.98, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13 of gestation. RR 0.997599 (95% CI 0.978789, 1.01677); log RR -0.00240381, SE 0.00971218. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.dry.t2": {
+    "value": 0.994518305471636,
+    "display": "0.99 (95% CI 0.97, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27 of gestation. RR 0.994518 (95% CI 0.973161, 1.01634); log RR -0.00549677, SE 0.0110764. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.dry.t3": {
+    "value": 0.980508731868698,
+    "display": "0.98 (95% CI 0.96, 1.00)",
+    "script": "models/F/05_weekly.R",
+    "description": "Cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40 of gestation. RR 0.980509 (95% CI 0.962432, 0.998925); log RR -0.0196837, SE 0.00949414. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.enso.en": {
+    "value": 0.998934671039446,
+    "display": "1.00 (95% CI 0.99, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "RR per +1 deg C of the El Nino part max(ONI, 0) averaged over the 40 gestational weeks. RR 0.998935 (95% CI 0.989812, 1.00814); log RR -0.0010659, SE 0.00468106. fepois with link unit + state x calendar-month fixed effects and a linear trend (no year-month effects), SEs clustered by year-month; n = 61354 unit-months in 655 link units; two El Nino episodes fall in the window"
+  },
+  "F.w.enso.ln": {
+    "value": 0.981300764053726,
+    "display": "0.98 (95% CI 0.95, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "RR per 1 deg C stronger La Nina (the La Nina part min(ONI, 0) averaged over the 40 gestational weeks, 1 deg C lower). RR 0.981301 (95% CI 0.949785, 1.01386); log RR -0.0188763, SE 0.0166551. fepois with link unit + state x calendar-month fixed effects and a linear trend (no year-month effects), SEs clustered by year-month; n = 61354 unit-months in 655 link units; two El Nino episodes fall in the window"
+  },
+  "F.w.enso.n": {
+    "value": 61354,
+    "display": "61,354",
+    "script": "models/F/05_weekly.R",
+    "description": "Unit-months in the El Nino secondary model"
+  },
+  "F.w.evalue.heat_gest.ci": {
+    "value": 1.13985219301506,
+    "display": "1.14",
+    "script": "models/F/05_weekly.R",
+    "description": "E-value of the 95% CI limit nearer 1 of the cumulative heat RR over weeks 1-40 (CI 1.01528, 1.07724; 1 when the interval contains 1)"
+  },
+  "F.w.evalue.heat_gest.est": {
+    "value": 1.26465980406787,
+    "display": "1.26",
+    "script": "models/F/05_weekly.R",
+    "description": "E-value (VanderWeele and Ding) of the cumulative heat RR over weeks 1-40,  1.0458"
+  },
+  "F.w.evalue.heat_t3.ci": {
+    "value": 1.05690560363744,
+    "display": "1.06",
+    "script": "models/F/05_weekly.R",
+    "description": "E-value of the 95% CI limit nearer 1 of the cumulative heat RR over weeks 28-40 (CI 1.00291, 1.02434; 1 when the interval contains 1)"
+  },
+  "F.w.evalue.heat_t3.est": {
+    "value": 1.13084321602707,
+    "display": "1.13",
+    "script": "models/F/05_weekly.R",
+    "description": "E-value (VanderWeele and Ding) of the cumulative heat RR over weeks 28-40, 1.01357"
+  },
+  "F.w.flow.excl_denom": {
+    "value": 333,
+    "display": "333",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: total births below 20"
+  },
+  "F.w.flow.excl_exposure": {
+    "value": 892,
+    "display": "892",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: a weekly exposure or negative control missing"
+  },
+  "F.w.flow.excl_gate": {
+    "value": 0,
+    "display": "0",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: unit-months of link units excluded by the stillbirth gates"
+  },
+  "F.w.flow.excl_outcome": {
+    "value": 725,
+    "display": "725",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: stillbirths or total births missing (masked or not reported)"
+  },
+  "F.w.flow.n_analysed": {
+    "value": 60465,
+    "display": "60,465",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: unit-months analysed (complete cases)"
+  },
+  "F.w.flow.n_districts": {
+    "value": 666,
+    "display": "666",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: GADM districts in the link units"
+  },
+  "F.w.flow.n_fit_dropped": {
+    "value": 3,
+    "display": "3",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: unit-months dropped by the Poisson fit (link units or fixed-effect groups with no stillbirth)"
+  },
+  "F.w.flow.n_link_units": {
+    "value": 657,
+    "display": "657",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: link units"
+  },
+  "F.w.flow.n_unit_months": {
+    "value": 62415,
+    "display": "62,415",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: link-unit-months, April 2012 to February 2020"
+  },
+  "F.w.flow.n_units_analysed": {
+    "value": 653,
+    "display": "653",
+    "script": "models/F/05_weekly.R",
+    "description": "Flow chart: link units analysed"
+  },
+  "F.w.heat.gest": {
+    "value": 1.04580129066326,
+    "display": "1.05 (95% CI 1.02, 1.08)",
+    "script": "models/F/05_weekly.R",
+    "description": "Cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40 of gestation. RR  1.0458 (95% CI 1.01528, 1.07724); log RR 0.0447834, SE 0.0151101. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.heat.t1": {
+    "value": 1.01903076999028,
+    "display": "1.02 (95% CI 1.01, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13 of gestation. RR 1.01903 (95% CI 1.00599, 1.03224); log RR 0.018852, SE 0.00657233. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.heat.t2": {
+    "value": 1.01253143295631,
+    "display": "1.01 (95% CI 1.00, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27 of gestation. RR 1.01253 (95% CI  1.0015, 1.02369); log RR 0.0124536, SE 0.00559092. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.heat.t3": {
+    "value": 1.01356909826829,
+    "display": "1.01 (95% CI 1.00, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40 of gestation. RR 1.01357 (95% CI 1.00291, 1.02434); log RR 0.0134779, SE 0.00539537. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.ipw.sw_max": {
+    "value": 11.4601585503376,
+    "display": "11.46",
+    "script": "models/F/05_weekly.R",
+    "description": "Largest stabilised inclusion weight among analysed unit-months (mean 0.988335)"
+  },
+  "F.w.ipw.sw_min": {
+    "value": 0.968757510327663,
+    "display": "0.97",
+    "script": "models/F/05_weekly.R",
+    "description": "Smallest stabilised inclusion weight among analysed unit-months (logistic inclusion model: state, financial year, log live births and institutional share, each with a missing indicator)"
+  },
+  "F.w.missing.cc_loss_eligible": {
+    "value": 0.0145378685398569,
+    "display": "1.5%",
+    "script": "models/F/05_weekly.R",
+    "description": "Share of the 61357 unit-months with a valid outcome and denominator dropped for a missing exposure (892)"
+  },
+  "F.w.missing.cc_loss_panel": {
+    "value": 0.0312424897861091,
+    "display": "3.1%",
+    "script": "models/F/05_weekly.R",
+    "description": "Complete-case loss of the primary model: share of the 62415 primary-window unit-months not analysed (1950), the measure of the 5% rule"
+  },
+  "F.w.missing.dry": {
+    "value": 0.0151726347833053,
+    "display": "1.5%",
+    "script": "models/F/05_weekly.R",
+    "description": "Share of the 62415 primary-window unit-months missing any weekly deficit exposure (weeks 1-40) (947)"
+  },
+  "F.w.missing.dry_nc8": {
+    "value": 0.00932468156693103,
+    "display": "0.9%",
+    "script": "models/F/05_weekly.R",
+    "description": "Share of the 62415 primary-window unit-months missing the deficit negative control (582)"
+  },
+  "F.w.missing.heat": {
+    "value": 0,
+    "display": "0.0%",
+    "script": "models/F/05_weekly.R",
+    "description": "Share of the 62415 primary-window unit-months missing any weekly heat exposure (weeks 1-40) (0)"
+  },
+  "F.w.missing.heat_nc8": {
+    "value": 0,
+    "display": "0.0%",
+    "script": "models/F/05_weekly.R",
+    "description": "Share of the 62415 primary-window unit-months missing the heat negative control (0)"
+  },
+  "F.w.missing.method": {
+    "value": "complete-case analysis",
+    "display": "complete-case analysis",
+    "script": "models/F/05_weekly.R",
+    "description": "Missing-data method under the plan's rule (complete-case analysis when the complete-case loss is below 5%)"
+  },
+  "F.w.missing.sb": {
+    "value": 0.0111671873748298,
+    "display": "1.1%",
+    "script": "models/F/05_weekly.R",
+    "description": "Share of the 62415 primary-window unit-months missing stillbirths (697)"
+  },
+  "F.w.missing.tb": {
+    "value": 0.0115997756949451,
+    "display": "1.2%",
+    "script": "models/F/05_weekly.R",
+    "description": "Share of the 62415 primary-window unit-months missing total births (724)"
+  },
+  "F.w.n": {
+    "value": 60462,
+    "display": "60,462",
+    "script": "models/F/05_weekly.R",
+    "description": "Unit-months in the fitted primary model (complete cases; link units or fixed-effect groups with no stillbirth dropped by fixest)"
+  },
+  "F.w.n_units": {
+    "value": 652,
+    "display": "652",
+    "script": "models/F/05_weekly.R",
+    "description": "Link units in the fitted primary model"
+  },
+  "F.w.nc.dry": {
+    "value": 0.998656405803198,
+    "display": "1.00 (95% CI 0.99, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Negative control: RR per one SPI-28 unit more deficit at the end of the 8th week after birth. RR 0.998656 (95% CI 0.989446, 1.00795); log RR -0.0013445, SE 0.00472742. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.nc.heat": {
+    "value": 1.01450852774433,
+    "display": "1.01 (95% CI 1.01, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Negative control: RR per +1 deg C mean Tmax anomaly over the 8 weeks after birth. RR 1.01451 (95% CI 1.00595, 1.02314); log RR 0.0144043, SE 0.00432346. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.reri.n_boot": {
+    "value": 500,
+    "display": "500",
+    "script": "models/F/05_weekly.R",
+    "description": "Bootstrap resamples (of 500) with a converged RERI model fit"
+  },
+  "F.w.reri.reri": {
+    "value": 0.00670476968213873,
+    "display": "0.01 (95% CI 0.00, 0.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "RERI = RR11 - RR10 - RR01 + 1 (summer birth x third-trimester heat). Estimate 0.00670477; 95% CI -0.0044598, 0.0170212: percentile interval of 500 successful link-unit cluster bootstrap resamples of 500 (seed 20261123). Model: fepois with link unit + financial year fixed effects, a summer indicator, heat and deficit cross-bases (df 6) and their interaction with summer, both negative controls; n = 60462"
+  },
+  "F.w.reri.rr01": {
+    "value": 1.00820335128347,
+    "display": "1.01 (95% CI 0.99, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "RR01: summer (March-May) birth against other months, at no anomaly. Estimate  1.0082; 95% CI 0.987727, 1.03082: percentile interval of 500 successful link-unit cluster bootstrap resamples of 500 (seed 20261123). Model: fepois with link unit + financial year fixed effects, a summer indicator, heat and deficit cross-bases (df 6) and their interaction with summer, both negative controls; n = 60462"
+  },
+  "F.w.reri.rr10": {
+    "value": 1.01821186772079,
+    "display": "1.02 (95% CI 1.01, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "RR10: +1 deg C sustained over weeks 28-40 in births outside March-May, against no anomaly. Estimate 1.01821; 95% CI 1.01136, 1.02645: percentile interval of 500 successful link-unit cluster bootstrap resamples of 500 (seed 20261123). Model: fepois with link unit + financial year fixed effects, a summer indicator, heat and deficit cross-bases (df 6) and their interaction with summer, both negative controls; n = 60462"
+  },
+  "F.w.reri.rr11": {
+    "value": 1.03311998868639,
+    "display": "1.03 (95% CI 1.01, 1.06)",
+    "script": "models/F/05_weekly.R",
+    "description": "RR11: summer birth with +1 deg C sustained over weeks 28-40, against non-summer births with no anomaly. Estimate 1.03312; 95% CI 1.00836, 1.06364: percentile interval of 500 successful link-unit cluster bootstrap resamples of 500 (seed 20261123). Model: fepois with link unit + financial year fixed effects, a summer indicator, heat and deficit cross-bases (df 6) and their interaction with summer, both negative controls; n = 60462"
+  },
+  "F.w.season.monsoon.dry.gest": {
+    "value": 0.987216389105006,
+    "display": "0.99 (95% CI 0.93, 1.05)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in monsoon (June-September): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR 0.987216 (95% CI 0.930351, 1.04756); log RR -0.012866, SE 0.0302695. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.monsoon.dry.t1": {
+    "value": 0.982499456411659,
+    "display": "0.98 (95% CI 0.96, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in monsoon (June-September): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 0.982499 (95% CI 0.955988, 1.00975); log RR -0.0176555, SE 0.0139568. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.monsoon.dry.t2": {
+    "value": 1.01596442041243,
+    "display": "1.02 (95% CI 0.98, 1.05)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in monsoon (June-September): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 1.01596 (95% CI 0.984214, 1.04874); log RR 0.0158383, SE 0.0161992. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.monsoon.dry.t3": {
+    "value": 0.989011949409151,
+    "display": "0.99 (95% CI 0.96, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in monsoon (June-September): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR 0.989012 (95% CI 0.957083, 1.02201); log RR -0.0110489, SE 0.0167434. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.monsoon.heat.gest": {
+    "value": 1.03835073833113,
+    "display": "1.04 (95% CI 1.00, 1.08)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in monsoon (June-September): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR 1.03835 (95% CI 0.999218, 1.07902); log RR 0.0376336, SE 0.0196002. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.monsoon.heat.t1": {
+    "value": 1.05501753154843,
+    "display": "1.06 (95% CI 1.03, 1.08)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in monsoon (June-September): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 1.05502 (95% CI 1.03155, 1.07902); log RR 0.0535574, SE 0.0114781. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.monsoon.heat.t2": {
+    "value": 1.01176049744746,
+    "display": "1.01 (95% CI 1.00, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in monsoon (June-September): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 1.01176 (95% CI 0.995971,  1.0278); log RR 0.0116919, SE 0.00802491. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.monsoon.heat.t3": {
+    "value": 0.97276218703817,
+    "display": "0.97 (95% CI 0.95, 0.99)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in monsoon (June-September): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 0.972762 (95% CI 0.952811, 0.993132); log RR -0.0276156, SE 0.0105735. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.postmonsoon.dry.gest": {
+    "value": 1.03630385914008,
+    "display": "1.04 (95% CI 0.97, 1.11)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in post-monsoon (October-November): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR  1.0363 (95% CI 0.966163, 1.11154); log RR 0.0356604, SE 0.0357575. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.postmonsoon.dry.t1": {
+    "value": 1.10512851034773,
+    "display": "1.11 (95% CI 1.03, 1.18)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in post-monsoon (October-November): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 1.10513 (95% CI 1.03088, 1.18472); log RR 0.0999616, SE 0.0354844. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.postmonsoon.dry.t2": {
+    "value": 0.976227804918536,
+    "display": "0.98 (95% CI 0.93, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in post-monsoon (October-November): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 0.976228 (95% CI 0.927103, 1.02796); log RR -0.0240593, SE 0.026343. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.postmonsoon.dry.t3": {
+    "value": 0.960557039925266,
+    "display": "0.96 (95% CI 0.93, 0.99)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in post-monsoon (October-November): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR 0.960557 (95% CI 0.930601, 0.991478); log RR -0.0402419, SE 0.0161652. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.postmonsoon.heat.gest": {
+    "value": 1.00883313766978,
+    "display": "1.01 (95% CI 0.96, 1.06)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in post-monsoon (October-November): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR 1.00883 (95% CI 0.96245, 1.05745); log RR 0.00879435, SE 0.0240142. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.postmonsoon.heat.t1": {
+    "value": 1.01089539532688,
+    "display": "1.01 (95% CI 0.99, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in post-monsoon (October-November): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR  1.0109 (95% CI 0.993213, 1.02889); log RR 0.0108365, SE 0.00900366. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.postmonsoon.heat.t2": {
+    "value": 0.965738738101763,
+    "display": "0.97 (95% CI 0.94, 0.99)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in post-monsoon (October-November): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 0.965739 (95% CI 0.93949, 0.992721); log RR -0.0348619, SE 0.0140598. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.postmonsoon.heat.t3": {
+    "value": 1.03336433541601,
+    "display": "1.03 (95% CI 1.00, 1.06)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in post-monsoon (October-November): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 1.03336 (95% CI 1.00415, 1.06343); log RR 0.0328198, SE 0.0146321. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.summer.dry.gest": {
+    "value": 0.987589543849434,
+    "display": "0.99 (95% CI 0.93, 1.05)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in pre-monsoon summer (March-May): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR 0.98759 (95% CI 0.927397, 1.05169); log RR -0.0124881, SE 0.0320851. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.summer.dry.t1": {
+    "value": 1.01794367635412,
+    "display": "1.02 (95% CI 0.99, 1.05)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in pre-monsoon summer (March-May): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 1.01794 (95% CI 0.989701, 1.04699); log RR 0.0177846, SE 0.0143561. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.summer.dry.t2": {
+    "value": 0.97359531561179,
+    "display": "0.97 (95% CI 0.94, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in pre-monsoon summer (March-May): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 0.973595 (95% CI 0.941852, 1.00641); log RR -0.0267595, SE 0.0169125. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.summer.dry.t3": {
+    "value": 0.996493014764694,
+    "display": "1.00 (95% CI 0.96, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in pre-monsoon summer (March-May): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR 0.996493 (95% CI 0.962672,  1.0315); log RR -0.00351315, SE 0.0176174. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.summer.heat.gest": {
+    "value": 1.07183587169033,
+    "display": "1.07 (95% CI 1.04, 1.11)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in pre-monsoon summer (March-May): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR 1.07184 (95% CI 1.03584, 1.10908); log RR 0.0693729, SE 0.0174291. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.summer.heat.t1": {
+    "value": 0.985502511776285,
+    "display": "0.99 (95% CI 0.97, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in pre-monsoon summer (March-May): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 0.985503 (95% CI 0.965261, 1.00617); log RR -0.0146036, SE 0.0105885. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.summer.heat.t2": {
+    "value": 1.06012473878656,
+    "display": "1.06 (95% CI 1.03, 1.09)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in pre-monsoon summer (March-May): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 1.06012 (95% CI 1.03334, 1.08761); log RR 0.0583866, SE 0.0130587. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.summer.heat.t3": {
+    "value": 1.02592020469169,
+    "display": "1.03 (95% CI 1.01, 1.04)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in pre-monsoon summer (March-May): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 1.02592 (95% CI 1.00818, 1.04397); log RR 0.02559, SE 0.00889834. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.winter.dry.gest": {
+    "value": 0.980810166323926,
+    "display": "0.98 (95% CI 0.92, 1.04)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in winter (December-February): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR 0.98081 (95% CI 0.922002, 1.04337); log RR -0.0193763, SE 0.0315473. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.winter.dry.t1": {
+    "value": 0.982090413000519,
+    "display": "0.98 (95% CI 0.94, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in winter (December-February): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 0.98209 (95% CI 0.942087, 1.02379); log RR -0.0180719, SE 0.0212175. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.winter.dry.t2": {
+    "value": 1.0083755134487,
+    "display": "1.01 (95% CI 0.98, 1.04)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in winter (December-February): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 1.00838 (95% CI 0.981187, 1.03632); log RR 0.00834063, SE 0.0139455. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.winter.dry.t3": {
+    "value": 0.990401287201683,
+    "display": "0.99 (95% CI 0.96, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in winter (December-February): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR 0.990401 (95% CI 0.957434,  1.0245); log RR -0.00964508, SE 0.0172724. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.winter.heat.gest": {
+    "value": 1.00134904988827,
+    "display": "1.00 (95% CI 0.97, 1.04)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in winter (December-February): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR 1.00135 (95% CI 0.967704, 1.03616); log RR 0.00134814, SE 0.0174375. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.winter.heat.t1": {
+    "value": 0.981107421714919,
+    "display": "0.98 (95% CI 0.96, 1.00)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in winter (December-February): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 0.981107 (95% CI 0.961174, 1.00145); log RR -0.0190733, SE 0.0104726. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.winter.heat.t2": {
+    "value": 0.981448718779635,
+    "display": "0.98 (95% CI 0.96, 1.00)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in winter (December-February): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 0.981449 (95% CI 0.960454,  1.0029); log RR -0.0187255, SE 0.0110325. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.season.winter.heat.t3": {
+    "value": 1.03992331860802,
+    "display": "1.04 (95% CI 1.02, 1.06)",
+    "script": "models/F/05_weekly.R",
+    "description": "Season-specific model, births in winter (December-February): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 1.03992 (95% CI 1.02047, 1.05974); log RR 0.039147, SE 0.00963291. fixest::fepois, offset log total births, fixed effects link unit + year-month + state x calendar month, SEs clustered by link unit; n = 60462 unit-months in 652 link units; spline df 6 (AIC)"
+  },
+  "F.w.sel.excl.births": {
+    "value": 1239,
+    "display": "1239",
+    "script": "models/F/05_weekly.R",
+    "description": "Median live births per unit-month over the excluded unit-months with it (n = 1682); median total births   652.5 (n = 1226)"
+  },
+  "F.w.sel.excl.inst_share": {
+    "value": 0.883640163991685,
+    "display": "88.4%",
+    "script": "models/F/05_weekly.R",
+    "description": "Mean institutional share of deliveries (inst / (inst + home)) over the excluded unit-months with it (n = 1157)"
+  },
+  "F.w.sel.excl.n": {
+    "value": 1950,
+    "display": "1,950",
+    "script": "models/F/05_weekly.R",
+    "description": "Unit-months excluded in the primary model (primary window)"
+  },
+  "F.w.sel.incl.births": {
+    "value": 2098,
+    "display": "2098",
+    "script": "models/F/05_weekly.R",
+    "description": "Median live births per unit-month over the included unit-months with it (n = 60465); median total births    2132 (n = 60465)"
+  },
+  "F.w.sel.incl.inst_share": {
+    "value": 0.881669525468894,
+    "display": "88.2%",
+    "script": "models/F/05_weekly.R",
+    "description": "Mean institutional share of deliveries (inst / (inst + home)) over the included unit-months with it (n = 58133)"
+  },
+  "F.w.sel.incl.n": {
+    "value": 60465,
+    "display": "60,465",
+    "script": "models/F/05_weekly.R",
+    "description": "Unit-months included in the primary model (primary window)"
+  },
+  "F.w.sens.align39.dry.gest": {
+    "value": 0.972709012417411,
+    "display": "0.97 (95% CI 0.93, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity align39 (gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-39. RR 0.972709 (95% CI 0.92501, 1.02287); log RR -0.0276703, SE 0.0256538; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.align39.dry.t1": {
+    "value": 0.99763094241573,
+    "display": "1.00 (95% CI 0.98, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity align39 (gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 0.997631 (95% CI 0.978718, 1.01691); log RR -0.00237187, SE 0.00976538; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.align39.dry.t2": {
+    "value": 0.99361554253659,
+    "display": "0.99 (95% CI 0.97, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity align39 (gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 0.993616 (95% CI 0.972236, 1.01547); log RR -0.00640493, SE 0.011098; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.align39.dry.t3": {
+    "value": 0.981283853330688,
+    "display": "0.98 (95% CI 0.96, 1.00)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity align39 (gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-39. RR 0.981284 (95% CI 0.964217, 0.998652); log RR -0.0188935, SE 0.00895163; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.align39.heat.gest": {
+    "value": 1.04474667549481,
+    "display": "1.04 (95% CI 1.01, 1.08)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity align39 (gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-39. RR 1.04475 (95% CI 1.01493, 1.07544); log RR 0.0437744, SE 0.0147731; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.align39.heat.t1": {
+    "value": 1.019853877256,
+    "display": "1.02 (95% CI 1.01, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity align39 (gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 1.01985 (95% CI 1.00678,  1.0331); log RR 0.0196594, SE 0.00658253; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.align39.heat.t2": {
+    "value": 1.01129250236447,
+    "display": "1.01 (95% CI 1.00, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity align39 (gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 1.01129 (95% CI 1.00049, 1.02221); log RR 0.0112292, SE 0.00548033; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.align39.heat.t3": {
+    "value": 1.01296924324133,
+    "display": "1.01 (95% CI 1.00, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity align39 (gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-39. RR 1.01297 (95% CI 1.00288, 1.02316); log RR 0.0128859, SE 0.00510788; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.cluster2.dry.gest": {
+    "value": 0.972792665263954,
+    "display": "0.97 (95% CI 0.92, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity cluster2 (standard errors clustered two-way by link unit and year-month): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR 0.972793 (95% CI 0.922473, 1.02586); log RR -0.0275843, SE 0.0270987; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.cluster2.dry.t1": {
+    "value": 0.997599081217237,
+    "display": "1.00 (95% CI 0.97, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity cluster2 (standard errors clustered two-way by link unit and year-month): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 0.997599 (95% CI 0.974016, 1.02175); log RR -0.00240381, SE 0.012206; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.cluster2.dry.t2": {
+    "value": 0.994518305471636,
+    "display": "0.99 (95% CI 0.97, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity cluster2 (standard errors clustered two-way by link unit and year-month): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 0.994518 (95% CI 0.970898, 1.01871); log RR -0.00549677, SE 0.0122642; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.cluster2.dry.t3": {
+    "value": 0.980508731868698,
+    "display": "0.98 (95% CI 0.96, 1.00)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity cluster2 (standard errors clustered two-way by link unit and year-month): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR 0.980509 (95% CI 0.963107, 0.998225); log RR -0.0196837, SE 0.00913626; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.cluster2.heat.gest": {
+    "value": 1.04580129066326,
+    "display": "1.05 (95% CI 1.01, 1.08)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity cluster2 (standard errors clustered two-way by link unit and year-month): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR  1.0458 (95% CI 1.00962, 1.08328); log RR 0.0447834, SE 0.0179651; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.cluster2.heat.t1": {
+    "value": 1.01903076999028,
+    "display": "1.02 (95% CI 1.00, 1.04)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity cluster2 (standard errors clustered two-way by link unit and year-month): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 1.01903 (95% CI  1.0005, 1.03791); log RR 0.018852, SE 0.00936478; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.cluster2.heat.t2": {
+    "value": 1.01253143295631,
+    "display": "1.01 (95% CI 1.00, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity cluster2 (standard errors clustered two-way by link unit and year-month): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 1.01253 (95% CI 0.995721, 1.02963); log RR 0.0124536, SE 0.00854169; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.cluster2.heat.t3": {
+    "value": 1.01356909826829,
+    "display": "1.01 (95% CI 1.00, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity cluster2 (standard errors clustered two-way by link unit and year-month): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 1.01357 (95% CI 0.996039, 1.03141); log RR 0.0134779, SE 0.00890138; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.inst090.dry.gest": {
+    "value": 0.985082236858014,
+    "display": "0.99 (95% CI 0.90, 1.08)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity inst090 (link units with institutional share >= 0.90 in every primary financial year): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR 0.985082 (95% CI 0.901491, 1.07642); log RR -0.0150302, SE 0.0452433; n = 22652 unit-months in 245 link units"
+  },
+  "F.w.sens.inst090.dry.t1": {
+    "value": 1.0012911474142,
+    "display": "1.00 (95% CI 0.97, 1.04)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity inst090 (link units with institutional share >= 0.90 in every primary financial year): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 1.00129 (95% CI 0.966105, 1.03776); log RR 0.00129031, SE 0.0182521; n = 22652 unit-months in 245 link units"
+  },
+  "F.w.sens.inst090.dry.t2": {
+    "value": 1.01071493119834,
+    "display": "1.01 (95% CI 0.98, 1.05)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity inst090 (link units with institutional share >= 0.90 in every primary financial year): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 1.01071 (95% CI 0.976229, 1.04642); log RR 0.0106579, SE 0.0177127; n = 22652 unit-months in 245 link units"
+  },
+  "F.w.sens.inst090.dry.t3": {
+    "value": 0.973382266534751,
+    "display": "0.97 (95% CI 0.95, 1.00)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity inst090 (link units with institutional share >= 0.90 in every primary financial year): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR 0.973382 (95% CI 0.947474, 0.999999); log RR -0.0269784, SE 0.0137644; n = 22652 unit-months in 245 link units"
+  },
+  "F.w.sens.inst090.heat.gest": {
+    "value": 1.03642800487922,
+    "display": "1.04 (95% CI 0.99, 1.08)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity inst090 (link units with institutional share >= 0.90 in every primary financial year): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR 1.03643 (95% CI 0.991457, 1.08344); log RR 0.0357802, SE 0.022633; n = 22652 unit-months in 245 link units"
+  },
+  "F.w.sens.inst090.heat.t1": {
+    "value": 1.0273407496743,
+    "display": "1.03 (95% CI 1.01, 1.05)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity inst090 (link units with institutional share >= 0.90 in every primary financial year): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 1.02734 (95% CI 1.00738,  1.0477); log RR 0.0269737, SE 0.0100131; n = 22652 unit-months in 245 link units"
+  },
+  "F.w.sens.inst090.heat.t2": {
+    "value": 1.00947096425701,
+    "display": "1.01 (95% CI 0.99, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity inst090 (link units with institutional share >= 0.90 in every primary financial year): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 1.00947 (95% CI 0.992929, 1.02629); log RR 0.0094264, SE 0.00843013; n = 22652 unit-months in 245 link units"
+  },
+  "F.w.sens.inst090.heat.t3": {
+    "value": 0.999380319643066,
+    "display": "1.00 (95% CI 0.98, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity inst090 (link units with institutional share >= 0.90 in every primary financial year): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 0.99938 (95% CI 0.984293,  1.0147); log RR -0.000619872, SE 0.00776141; n = 22652 unit-months in 245 link units"
+  },
+  "F.w.sens.ipw.dry.gest": {
+    "value": 0.970456877001276,
+    "display": "0.97 (95% CI 0.92, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity ipw (inverse probability of inclusion weights (stabilised)): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR 0.970457 (95% CI 0.921055, 1.02251); log RR -0.0299883, SE 0.0266571; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.ipw.dry.t1": {
+    "value": 0.996966758781491,
+    "display": "1.00 (95% CI 0.98, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity ipw (inverse probability of inclusion weights (stabilised)): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 0.996967 (95% CI 0.977878, 1.01643); log RR -0.00303785, SE 0.00986368; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.ipw.dry.t2": {
+    "value": 0.993376770696205,
+    "display": "0.99 (95% CI 0.97, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity ipw (inverse probability of inclusion weights (stabilised)): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 0.993377 (95% CI 0.971612, 1.01563); log RR -0.00664526, SE 0.0113032; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.ipw.dry.t3": {
+    "value": 0.97989956220119,
+    "display": "0.98 (95% CI 0.96, 1.00)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity ipw (inverse probability of inclusion weights (stabilised)): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR  0.9799 (95% CI 0.961469, 0.998683); log RR -0.0203052, SE 0.00968781; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.ipw.heat.gest": {
+    "value": 1.0488869422645,
+    "display": "1.05 (95% CI 1.02, 1.08)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity ipw (inverse probability of inclusion weights (stabilised)): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR 1.04889 (95% CI 1.01782,  1.0809); log RR 0.0477295, SE 0.015339; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.ipw.heat.t1": {
+    "value": 1.01991792896231,
+    "display": "1.02 (95% CI 1.01, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity ipw (inverse probability of inclusion weights (stabilised)): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 1.01992 (95% CI 1.00674, 1.03327); log RR 0.0197222, SE 0.00663714; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.ipw.heat.t2": {
+    "value": 1.01348689132694,
+    "display": "1.01 (95% CI 1.00, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity ipw (inverse probability of inclusion weights (stabilised)): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 1.01349 (95% CI  1.0023, 1.02479); log RR 0.0133968, SE 0.00566058; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.ipw.heat.t3": {
+    "value": 1.01471788891719,
+    "display": "1.01 (95% CI 1.00, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity ipw (inverse probability of inclusion weights (stabilised)): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 1.01472 (95% CI 1.00385,  1.0257); log RR 0.0146106, SE 0.00549195; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.negbin.dry.gest": {
+    "value": 0.978681822039338,
+    "display": "0.98 (95% CI 0.94, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity negbin (negative binomial (fixest::fenegbin) instead of Poisson): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR 0.978682 (95% CI 0.936278, 1.02301); log RR -0.0215487, SE 0.0225995; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.negbin.dry.t1": {
+    "value": 0.995125567566573,
+    "display": "1.00 (95% CI 0.98, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity negbin (negative binomial (fixest::fenegbin) instead of Poisson): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 0.995126 (95% CI 0.978169, 1.01238); log RR -0.00488635, SE 0.00876876; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.negbin.dry.t2": {
+    "value": 0.996978226646784,
+    "display": "1.00 (95% CI 0.98, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity negbin (negative binomial (fixest::fenegbin) instead of Poisson): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 0.996978 (95% CI 0.979041, 1.01524); log RR -0.00302635, SE 0.00926322; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.negbin.dry.t3": {
+    "value": 0.986456556062763,
+    "display": "0.99 (95% CI 0.97, 1.00)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity negbin (negative binomial (fixest::fenegbin) instead of Poisson): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR 0.986457 (95% CI  0.9698,  1.0034); log RR -0.013636, SE 0.00868884; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.negbin.heat.gest": {
+    "value": 1.04559597562677,
+    "display": "1.05 (95% CI 1.02, 1.07)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity negbin (negative binomial (fixest::fenegbin) instead of Poisson): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR  1.0456 (95% CI 1.02123, 1.07054); log RR 0.044587, SE 0.0120305; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.negbin.heat.t1": {
+    "value": 1.01938216991715,
+    "display": "1.02 (95% CI 1.01, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity negbin (negative binomial (fixest::fenegbin) instead of Poisson): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 1.01938 (95% CI 1.00864, 1.03024); log RR 0.0191967, SE 0.00540668; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.negbin.heat.t2": {
+    "value": 1.0121043704308,
+    "display": "1.01 (95% CI 1.00, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity negbin (negative binomial (fixest::fenegbin) instead of Poisson): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR  1.0121 (95% CI 1.00278, 1.02152); log RR 0.0120317, SE 0.00472462; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.negbin.heat.t3": {
+    "value": 1.01344823291026,
+    "display": "1.01 (95% CI 1.00, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity negbin (negative binomial (fixest::fenegbin) instead of Poisson): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 1.01345 (95% CI 1.00455, 1.02243); log RR 0.0133586, SE 0.00450026; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.trend.dry.gest": {
+    "value": 1.00918492574257,
+    "display": "1.01 (95% CI 0.97, 1.05)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-40. RR 1.00918 (95% CI 0.966936, 1.05328); log RR 0.009143, SE 0.0218199; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.trend.dry.t1": {
+    "value": 1.01463992971806,
+    "display": "1.01 (95% CI 1.00, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per one SPI-28 unit more deficit sustained over weeks 1-13. RR 1.01464 (95% CI 0.999109, 1.03041); log RR 0.0145338, SE 0.00786997; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.trend.dry.t2": {
+    "value": 1.00675698608397,
+    "display": "1.01 (95% CI 0.99, 1.03)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per one SPI-28 unit more deficit sustained over weeks 14-27. RR 1.00676 (95% CI 0.988102, 1.02576); log RR 0.00673426, SE 0.00954299; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.trend.dry.t3": {
+    "value": 0.987948152691724,
+    "display": "0.99 (95% CI 0.97, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per one SPI-28 unit more deficit sustained over weeks 28-40. RR 0.987948 (95% CI 0.970615, 1.00559); log RR -0.0121251, SE 0.00903098; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.trend.heat.gest": {
+    "value": 0.998205864318691,
+    "display": "1.00 (95% CI 0.98, 1.02)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-40. RR 0.998206 (95% CI 0.976862, 1.02002); log RR -0.00179575, SE 0.0110277; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.trend.heat.t1": {
+    "value": 0.996542189628465,
+    "display": "1.00 (95% CI 0.99, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 1-13. RR 0.996542 (95% CI 0.986933, 1.00625); log RR -0.0034638, SE 0.00494377; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.trend.heat.t2": {
+    "value": 0.99677089702983,
+    "display": "1.00 (95% CI 0.99, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 14-27. RR 0.996771 (95% CI 0.987958, 1.00566); log RR -0.00323433, SE 0.00453091; n = 60462 unit-months in 652 link units"
+  },
+  "F.w.sens.trend.heat.t3": {
+    "value": 1.00491441945914,
+    "display": "1.00 (95% CI 1.00, 1.01)",
+    "script": "models/F/05_weekly.R",
+    "description": "Sensitivity trend (link-unit-specific linear trends added): cumulative RR per +1 deg C Tmax anomaly sustained over weeks 28-40. RR 1.00491 (95% CI 0.995834, 1.01408); log RR 0.00490238, SE 0.00463149; n = 60462 unit-months in 652 link units"
   }
 }

@@ -1,6 +1,6 @@
 # Paper F: results contract (`papers/F/results.json`)
 
-This contract lists every key that the Paper F scripts write to `papers/F/results.json` (297 keys). The design is `docs/superpowers/specs/2026-10-26-paper-f-perinatal-hmis-design.md` (§5.5 hypotheses and verdicts, §5.6 power, §12 rulings R1–R9 and the planning rulings are binding); the plan is `docs/superpowers/plans/2026-10-26-paper-f-perinatal-hmis.md`; the controller rulings are in the Paper F SDD ledger (`progress.md`). Entries use the Paper 0 schema `{"<key>": {"value", "display", "script", "description"}}`, written with `res_entry()` / `write_results()` (`models/common/R/results.R`). The producing scripts are `models/F/01_power.R` (§9, run first), `models/F/02_primary.R` (§5–§7), `models/F/03_secondary.R` (§8, §10, §11), `models/F/00_timing.R` (§4, already run) and `models/F/04_results.R` (§1–§3, §12, and the assembly through `models/F/R/results_f.R`). `04_results.R` stops unless the keys written equal `contract_keys("../papers/F/results_keys.md", prefix = "F")`. `tools/build_manuscript.py` fails on a missing key or a null display, and `papers/F/check_results_keys.py` cross-checks the manuscript placeholders against this file.
+This contract lists every key that the Paper F scripts write to `papers/F/results.json` (435 keys). The amendment of 2026-11-23 (§15) added 138 keys to the 297 earlier ones. The design is `docs/superpowers/specs/2026-10-26-paper-f-perinatal-hmis-design.md` (§5.5 hypotheses and verdicts, §5.6 power, §12 rulings R1–R9 and the planning rulings are binding); the plan is `docs/superpowers/plans/2026-10-26-paper-f-perinatal-hmis.md`; the controller rulings are in the Paper F SDD ledger (`progress.md`). Entries use the Paper 0 schema `{"<key>": {"value", "display", "script", "description"}}`, written with `res_entry()` / `write_results()` (`models/common/R/results.R`). The producing scripts are `models/F/01_power.R` (§9, run first), `models/F/02_primary.R` (§5–§7), `models/F/03_secondary.R` (§8, §10, §11), `models/F/00_timing.R` (§4, already run) and `models/F/04_results.R` (§1–§3, §12, and the assembly through `models/F/R/results_f.R`). `04_results.R` stops unless the keys written equal `contract_keys("../papers/F/results_keys.md", prefix = "F")`. `tools/build_manuscript.py` fails on a missing key or a null display, and `papers/F/check_results_keys.py` cross-checks the manuscript placeholders against this file.
 
 **What was known when this contract was written (disclosure; resolution (plan, 2026-10-26); R6).** This file was committed alone, before any exposure model existed under `models/F/` and before any model with a climate or ENSO term was fitted to an HMIS outcome. The following were known:
 - **The panel and the link units** (`data/derived/hmis/perinatal_unit_month.csv.gz`, `perinatal_model.csv.gz`, `pipeline/reference/hmis_link_units.csv`): 657 stable GADM link units covering all 666 GADM districts, six of them with more than one GADM district (largest: five); R3 manual-review share 52 of 716 state × name combinations (0.0726; limit 0.10); 67 accepted fuzzy matches in `perinatal_fuzzy_matches.csv`, 36 of them in FY2012-13 to 2019-20; Delhi is one link unit.
@@ -22,7 +22,7 @@ Later additions are dated amendments, committed before the step that produces th
 - `<H>` = `{h10a,h10b,h10c,h11a,h11b,h11c}` (the six tests);
 - `<FY>` = `{fy1213,fy1314,fy1415,fy1516,fy1617,fy1718,fy1819,fy1920}` (financial years, `fy1213` = FY2012-13; the form has no hyphen because `tools/build_manuscript.STRICT_KEY` allows none).
 
-`04_results.R` reads this file with `contract_keys(path, prefix = "F")` from `models/D/R/contract.R` (sourced read-only). Every backticked `F.` token in the first cell of a table row that starts with `` | `F. `` is a key, after brace expansion. Only key tables have such rows. The number of keys in each section is stated in its heading, and the sections sum to the 297 keys above.
+`04_results.R` reads this file with `contract_keys(path, prefix = "F")` from `models/D/R/contract.R` (sourced read-only). Every backticked `F.` token in the first cell of a table row that starts with `` | `F. `` is a key, after brace expansion. Only key tables have such rows. The number of keys in each section is stated in its heading, and the sections sum to the 435 keys above.
 
 ## Conventions
 
@@ -318,3 +318,35 @@ Written after the primary, secondary and sensitivity estimates of Tasks 10 and 1
 - **It is display-only and was decided after results were seen.** The `description` of each key still carries the full-precision estimate, bounds, log-scale coefficient and SE; the values in `results.json` are unchanged.
 - **Reason.** At 2 decimals the H10a estimate and interval displayed as `1.01 (95% CI 1.00–1.02)`, although its interval excludes 1 (the lower bound is above 1.003); two decimals hid that the interval excludes 1 and made small associations look like point nulls. Three decimals show the bounds' side of 1 for the effect sizes of this paper (a few tenths of a percent per °C).
 - Applied through the Paper F wrapper `fmt_rr_ci()` in `models/F/R/common_f.R`; the common formatter `fmt_ci()` and Paper E's output are not changed.
+
+## 15. Weekly-exposure analysis (amendment 2026-11-23) (138 keys)
+
+**Amendment of 23 November 2026, written before any model with a weekly exposure was fitted to an HMIS outcome.** It implements the fixed analysis plan `papers/F/analysis_plan_weekly.md` (original committed as d903e46). No earlier key changes: the keys of §1–§12 keep their values and bytes in `papers/F/results.json`, and the keys below are appended after them (they sort last). Producer: `models/F/05_weekly.R` (`--step=fits|boot|results`; functions `models/F/R/weekly_f.R`); exposures from `pipeline/hmis/perinatal_weekly.py` (`data/derived/hmis/perinatal_weekly_exposure.csv.gz`, `perinatal_weekly_oni.csv.gz`); tables `models/F/output/w_*.csv`. `04_results.R` reads these entries from `models/F/_cache/w_entries.rds` (step `weekly`).
+
+**Rules of this section (reporting rules; they bind only the `F.w.` keys).**
+- No p-value, statistical test, verdict, "significant" wording or multiple-comparison correction; no key holds a p-value or a verdict. Model choice by AIC only. The Holm family, the H10/H11 labels and the verdict rules of §7 are not used by these keys.
+- Displays: `rr_w` = `fmt_w_ci(est, lo, hi)`, for example `1.04 (95% CI 1.01, 1.07)` (two decimals, a comma inside the CI, U+2212 for a negative bound); this replaces the `rr_ci` form of the Conventions table and the 3-decimal display amendment for the `F.w.` keys only. `pct1` = one decimal; `num1` (AIC), `num2` (E-values, weights), `int` (counts); text as listed.
+- Model (plan §3): `fixest::fepois`, stillbirths with offset log total births, the heat and deficit cross-bases (natural cubic spline over weeks 1–40 with intercept, Z = X B, df chosen by AIC among 3–6, the same for both) and both negative controls, fixed effects link unit + year-month + state × calendar month, SEs clustered by link unit, complete cases of the gated stillbirth rows (`excluded_sb == 0`, total births ≥ 20) in the primary window.
+- Orientation: heat per +1 °C Tmax anomaly; deficit (`dry`) per one SPI-28 unit more deficit, i.e. exp(−Σβ) of min(SPI-28, 0) with the bounds swapped. Blocks: `t1` weeks 1–13, `t2` 14–27, `t3` 28–40, `gest` 1–40 (sustained exposure; sums of β_w); under `align39` `t3` is weeks 28–39 and `gest` weeks 1–39.
+- Seasons of birth `{winter,summer,monsoon,postmonsoon}`: December–February, March–May, June–September, October–November. RERI (plan §4): link unit + financial-year fixed effects, a summer indicator, the cross-bases and their interaction with summer; 95% CI the percentile interval of 500 link-unit cluster bootstrap resamples, seed 20261123.
+- Missing data (plan §1): complete-case analysis when the complete-case loss (share of the 62,415 primary-window unit-months not analysed) is below 5%; otherwise the run stops for multiple imputation.
+
+| Key | Display | Content |
+|---|---|---|
+| `F.w.df` | int | Spline df chosen by AIC |
+| `F.w.aic.{df3,df4,df5,df6}` | num1 | AIC of the pooled primary model at each df (same rows) |
+| `F.w.aic.{pooled,season}` | num1 | AIC of the pooled and the season-interacted model at the chosen df |
+| `F.w.{n,n_units}` | int | Unit-months and link units in the fitted primary model |
+| `F.w.{heat,dry}.{t1,t2,t3,gest}` | rr_w | Cumulative RRs, pooled primary model |
+| `F.w.nc.{heat,dry}` | rr_w | Negative controls: mean heat anomaly over the 8 weeks after birth; SPI-28 deficit at the end of the 8th week after birth |
+| `F.w.season.{winter,summer,monsoon,postmonsoon}.{heat,dry}.{t1,t2,t3,gest}` | rr_w | Season-specific cumulative RRs |
+| `F.w.reri.{rr10,rr01,rr11,reri}` | rr_w | RR10, RR01, RR11 and RERI (summer birth × heat sustained over weeks 28–40), bootstrap percentile CI |
+| `F.w.reri.n_boot` | int | Bootstrap resamples with a converged fit (of 500) |
+| `F.w.evalue.{heat_t3,heat_gest}.{est,ci}` | num2 | E-values of the cumulative heat RRs (weeks 28–40, 1–40): estimate and the CI limit nearer 1 |
+| `F.w.sel.{incl,excl}.{n,inst_share,births}` | int, pct1, int | Included vs excluded unit-months: count, mean institutional share, median live births |
+| `F.w.ipw.{sw_min,sw_max}` | num2 | Range of the stabilised inclusion weights among analysed unit-months |
+| `F.w.sens.{negbin,trend,inst090,align39,cluster2,ipw}.{heat,dry}.{t1,t2,t3,gest}` | rr_w | Sensitivity analyses 1–6 of plan §6 |
+| `F.w.enso.{en,ln,n}` | rr_w, int | El Niño part per +1 °C and La Niña part per 1 °C stronger La Niña (gestation averages), and the model's unit-months |
+| `F.w.missing.{sb,tb,heat,dry,heat_nc8,dry_nc8,cc_loss_panel,cc_loss_eligible}` | pct1 | Share missing per variable over the primary window; complete-case loss (panel and eligible rows) |
+| `F.w.missing.method` | text | `complete-case analysis` or `multiple imputation` |
+| `F.w.flow.{n_districts,n_link_units,n_unit_months,excl_gate,excl_outcome,excl_denom,excl_exposure,n_analysed,n_units_analysed,n_fit_dropped}` | int | Flow-chart counts |

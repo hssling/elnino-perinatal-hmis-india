@@ -33,7 +33,7 @@ fake_step_entries <- function(step, h = c(h10a = NO, h10b = NO, h10c = NO, h11a 
 }
 
 fake_steps <- function(...) {
-  nm <- c("power", "primary", "secondary", "reading")
+  nm <- c("power", "primary", "secondary", "reading", "weekly")
   stats::setNames(lapply(nm, function(n) list(name = n, status = "cached", entries = fake_step_entries(n, ...))), nm)
 }
 
@@ -60,26 +60,27 @@ test_that("power step codes map to the contract's displays", {
 
 # ---- the contract ---------------------------------------------------------------------------------------------------
 
-test_that("the contract declares 297 keys and its sections add up", {
+test_that("the contract declares 435 keys (297 + the 138 of the 2026-11-23 amendment) and its sections add up", {
   cnt <- assert_contract_counts_f(F_CONTRACT)
-  expect_identical(attr(cnt, "declared_total"), 297L)
-  expect_identical(sum(cnt$found), 297L)
-  expect_identical(length(WANT), 297L)
-  expect_identical(nrow(cnt), 12L)
+  expect_identical(attr(cnt, "declared_total"), 435L)
+  expect_identical(sum(cnt$found), 435L)
+  expect_identical(length(WANT), 435L)
+  expect_identical(nrow(cnt), 13L)
   # every key has exactly one owner
-  expect_identical(sort(unique(f_key_step(WANT))), c("conclusion", "panel", "power", "primary", "reading", "secondary"))
+  expect_identical(sort(unique(f_key_step(WANT))), c("conclusion", "panel", "power", "primary", "reading", "secondary", "weekly"))
   expect_identical(sum(f_key_step(WANT) == "panel"), 82L)
   expect_identical(sum(f_key_step(WANT) == "power"), 20L)
   expect_identical(sum(f_key_step(WANT) == "primary"), 72L)
   expect_identical(sum(f_key_step(WANT) == "secondary"), 118L)
   expect_identical(sum(f_key_step(WANT) == "reading"), 4L)
+  expect_identical(sum(f_key_step(WANT) == "weekly"), 138L)
   expect_error(f_key_step("F.nosuch.key"), "no owner")
 })
 
 test_that("results key set equals the contract", {
   e <- assemble_f_results(fake_steps(), panel = fake_step_entries("panel"), contract = F_CONTRACT)
   expect_setequal(names(e), WANT)
-  expect_identical(length(e), 297L)
+  expect_identical(length(e), 435L)
   expect_identical(names(e), WANT[order(WANT, method = "radix")])
   expect_true(startsWith(e[["F.abstract.conclusion_sentence"]]$display, "In this link-unit-month analysis"))
   # a missing key and an extra key both stop the run

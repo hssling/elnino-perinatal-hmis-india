@@ -4,8 +4,10 @@ Code, every reported number and the aggregate data of a pre-specified link-unit-
 
 Repository: https://github.com/hssling/elnino-perinatal-hmis-india
 
+**Version 1.1.0 (23 November 2026)** adds a weekly-exposure analysis of stillbirth, fixed in `papers/F/analysis_plan_weekly.md` before any weekly model was fitted: daily maximum-temperature anomalies and a 28-day standardised precipitation index averaged into 40 gestational weeks (`pipeline/hmis/perinatal_weekly.py`; climate-only tables `data/derived/hmis/perinatal_weekly_exposure.csv.gz` and `perinatal_weekly_oni.csv.gz`), distributed-lag Poisson models with unit, year-month and state-by-calendar-month fixed effects, season-specific curves, the relative excess risk due to interaction with a cluster bootstrap, E-values, selection weighting and sensitivity analyses (`models/F/05_weekly.R`, `models/F/R/weekly_f.R`; outputs `models/F/output/w_*.csv`; keys `F.w.*` in `papers/F/results.json`, section 15 of the contract). Low birth weight is not part of this analysis. Version 1.0.0 is unchanged in its archive.
+
 **Paper (manuscript; the citation will be added on publication):**
-Siddalingaiah H S. Heat, rainfall deficit and El Niño in pregnancy and stillbirth and low birth weight in India: a district-level analysis of routine health information system data, 2012–2020.
+Siddalingaiah H S. Weekly heat and rainfall deficit during pregnancy and stillbirth in Indian districts, 2012–2020: a distributed-lag analysis of routine health information system data (manuscript; version 1.1.0). Version 1.0.0 accompanied an earlier analysis: Heat, rainfall deficit and El Niño in pregnancy and stillbirth and low birth weight in India: a district-level analysis of routine health information system data, 2012–2020.
 
 Please cite the paper once it is published, and this repository through `CITATION.cff`.
 
@@ -14,7 +16,7 @@ Please cite the paper once it is published, and this repository through `CITATIO
 A results contract (`papers/F/results_keys.md`) listing every reported quantity with its definition, source, display and the verdict rules was committed before any exposure model was fitted; later changes are dated amendments in the same file. The study was not registered in an external registry. The design specification is included (the implementation plan, an internal working document, is not):
 
 - `docs/superpowers/specs/2026-10-26-paper-f-perinatal-hmis-design.md`: design specification.
-- `papers/F/results_keys.md`: the results contract and its amendments (297 keys).
+- `papers/F/results_keys.md`: the results contract and its amendments (435 keys).
 
 Timeline, from the history of the author's working repository (first commit of each file; times are IST, UTC+05:30):
 
@@ -40,22 +42,23 @@ Internal decision identifiers (for example "ruling", "R7" or "Task 8") refer to 
 ```
 ./                                 11 files
 data/derived/                      enso_monthly.csv
-data/derived/hmis/                 6 files
+data/derived/hmis/                 8 files
                                    # release panel (small counts suppressed), climate by link unit and month, gate, flag, break and d24 reports
 docs/superpowers/specs/            2026-10-26-paper-f-perinatal-hmis-design.md
 models/                            .Rprofile, DESCRIPTION, renv.lock, setup.R
 models/D/R/                        contract.R
 models/E/R/                        common_e.R, monthly.R, power.R, secondary.R, verdicts.R
-models/F/                          7 files
+models/F/                          8 files
                                    # R analysis: run_all.R and steps 00-04
-models/F/R/                        7 files
+models/F/R/                        8 files
                                    # helpers: perinatal panel, power, primary and secondary fits, verdicts, results
+models/F/output/                   15 files
 models/common/R/                   8 files
 models/common/tests/               run.R
-models/common/tests/testthat/      8 files
+models/common/tests/testthat/      9 files
                                    # testthat suite (Paper F tests and helpers)
 models/renv/                       .gitignore, activate.R, settings.json
-papers/F/                          check_results_keys.py, results.json, results_keys.md, traceability.csv
+papers/F/                          analysis_plan_weekly.md, check_results_keys.py, results.json, results_keys.md, traceability.csv
                                    # results.json, results contract, traceability table, key check
 papers/F/figures/                  make_figures.py
 papers/F/figures/data/             figure_1.csv, figure_2.csv, figure_3.csv, figure_4.csv
@@ -66,13 +69,13 @@ papers/F/tables/                   make_tables.py, table1_crosswalk.md, table2_p
                                    # descriptive tables and their data
 papers/F/tables/data/              table2.csv
 pipeline/                          14 files
-pipeline/hmis/                     23 files
+pipeline/hmis/                     24 files
                                    # HMIS download, parsing, crosswalk, flags, panel, gates and the Paper F perinatal modules
 pipeline/outcomes/                 __init__.py, fetch.py, gates.py, states.py
 pipeline/reference/                hmis_link_units.csv, hmis_perinatal_crosswalk.csv, hmis_perinatal_reviewed.csv, hmis_sources.csv, state_frame.csv
                                    # link units, portal file list, perinatal item crosswalk and reviewed dispositions, state frame
 tests/                             __init__.py
-tests/hmis/                        11 files
+tests/hmis/                        12 files
                                    # pytest suite for the perinatal pipeline, synthetic fixtures only
 tests/hmis/fixtures/               13 files
 tools/                             __init__.py, build_manuscript.py
@@ -98,7 +101,7 @@ No district-level HMIS value is included, and no FY2020-21 value (see above).
 
 All tables are UTF-8 CSV; missing is an empty cell, never 0.
 
-- `papers/F/results.json`: every number reported in the paper, as `{"<key>": {"value", "display", "script", "description"}}` (297 keys); `papers/F/traceability.csv` lists them with the script that wrote each; `python papers/F/check_results_keys.py` cross-checks the keys against the contract.
+- `papers/F/results.json`: every number reported in the paper, as `{"<key>": {"value", "display", "script", "description"}}` (435 keys); `papers/F/traceability.csv` lists them with the script that wrote each; `python papers/F/check_results_keys.py` cross-checks the keys against the contract.
 - `papers/F/output/`: primary estimates, trimester and timing analyses, selection audit, sensitivity analyses, secondary outcomes, power and `provenance.csv`.
 - `papers/F/figures/data/`, `papers/F/tables/`: the data behind each figure and table; `make_figures.py` and `make_tables.py` draw them.
 
@@ -107,5 +110,5 @@ All tables are UTF-8 CSV; missing is an empty cell, never 0.
 This is a release copy: it has no history of the author's working repository, none of the model caches or logs, and none of the district-level model tables (`perinatal_unit_month.csv.gz`, `perinatal_model.csv.gz`) from which the models were fitted. Those tables are rebuilt from the portal files, which are not included: `python -I pipeline/hmis/run.py fetch` downloads them and the steps of `pipeline/hmis/run_f.py` (see its docstring) parse and assemble them. Requirements: Python 3.10 or later with `pip install -r requirements.txt`; R 4.5.3 with the packages of `models/renv.lock` (`cd models`, then `Rscript setup.R`).
 
 1. **Python tests.** `python -m pytest` runs the tests of the perinatal pipeline on synthetic fixtures.
-2. **Key check.** `python papers/F/check_results_keys.py` checks that `papers/F/results.json` holds exactly the 297 keys of the contract.
+2. **Key check.** `python papers/F/check_results_keys.py` checks that `papers/F/results.json` holds exactly the 435 keys of the contract.
 3. **Figures and tables.** `python papers/F/figures/make_figures.py` and `python papers/F/tables/make_tables.py` redraw them from the included data (the FY2020-21 months are not in the data).

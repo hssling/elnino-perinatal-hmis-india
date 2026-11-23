@@ -1,0 +1,15 @@
+step,n,text
+n_districts,666,GADM districts in the link units
+n_link_units,657,link units
+n_unit_months,62415,"link-unit-months, April 2012 to February 2020"
+excl_gate,0,unit-months of link units excluded by the stillbirth gates
+excl_outcome,725,stillbirths or total births missing (masked or not reported)
+excl_denom,333,total births below 20
+excl_exposure,892,a weekly exposure or negative control missing
+excl_exposure_heat,0,of which heat or its negative control missing
+excl_exposure_dry,892,of which only the deficit or its negative control missing
+n_analysed,60465,unit-months analysed (complete cases)
+n_units_analysed,653,link units analysed
+n_fit_dropped,3,unit-months dropped by the Poisson fit (link units or fixed-effect groups with no stillbirth)
+n_fit,60462,unit-months in the fitted primary model
+n_units_fit,652,link units in the fitted primary model

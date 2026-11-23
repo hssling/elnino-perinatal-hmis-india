@@ -1,0 +1,49 @@
+analysis,exposure,block,est,se,rr,lo,hi,display,n,n_units,text
+negbin,heat,t1,0.01919673,0.005406675,1.019382,1.008637,1.030242,"1.02 (95% CI 1.01, 1.03)",60462,652,negative binomial (fixest::fenegbin) instead of Poisson
+negbin,heat,t2,0.0120317,0.004724616,1.012104,1.002775,1.02152,"1.01 (95% CI 1.00, 1.02)",60462,652,negative binomial (fixest::fenegbin) instead of Poisson
+negbin,heat,t3,0.01335861,0.004500261,1.013448,1.004549,1.022427,"1.01 (95% CI 1.00, 1.02)",60462,652,negative binomial (fixest::fenegbin) instead of Poisson
+negbin,heat,gest,0.04458703,0.0120305,1.045596,1.02123,1.070543,"1.05 (95% CI 1.02, 1.07)",60462,652,negative binomial (fixest::fenegbin) instead of Poisson
+negbin,dry,t1,-0.004886351,0.008768756,0.9951256,0.978169,1.012376,"1.00 (95% CI 0.98, 1.01)",60462,652,negative binomial (fixest::fenegbin) instead of Poisson
+negbin,dry,t2,-0.003026348,0.009263216,0.9969782,0.9790408,1.015244,"1.00 (95% CI 0.98, 1.02)",60462,652,negative binomial (fixest::fenegbin) instead of Poisson
+negbin,dry,t3,-0.01363599,0.008688836,0.9864566,0.9697996,1.0034,"0.99 (95% CI 0.97, 1.00)",60462,652,negative binomial (fixest::fenegbin) instead of Poisson
+negbin,dry,gest,-0.02154869,0.02259953,0.9786818,0.9362779,1.023006,"0.98 (95% CI 0.94, 1.02)",60462,652,negative binomial (fixest::fenegbin) instead of Poisson
+trend,heat,t1,-0.003463802,0.00494377,0.9965422,0.9869327,1.006245,"1.00 (95% CI 0.99, 1.01)",60462,652,link-unit-specific linear trends added
+trend,heat,t2,-0.003234328,0.00453091,0.9967709,0.9879583,1.005662,"1.00 (95% CI 0.99, 1.01)",60462,652,link-unit-specific linear trends added
+trend,heat,t3,0.004902383,0.004631495,1.004914,0.9958335,1.014078,"1.00 (95% CI 1.00, 1.01)",60462,652,link-unit-specific linear trends added
+trend,heat,gest,-0.001795747,0.0110277,0.9982059,0.9768622,1.020016,"1.00 (95% CI 0.98, 1.02)",60462,652,link-unit-specific linear trends added
+trend,dry,t1,0.0145338,0.007869974,1.01464,0.9991093,1.030412,"1.01 (95% CI 1.00, 1.03)",60462,652,link-unit-specific linear trends added
+trend,dry,t2,0.00673426,0.009542987,1.006757,0.9881017,1.025764,"1.01 (95% CI 0.99, 1.03)",60462,652,link-unit-specific linear trends added
+trend,dry,t3,-0.01212506,0.009030985,0.9879482,0.9706149,1.005591,"0.99 (95% CI 0.97, 1.01)",60462,652,link-unit-specific linear trends added
+trend,dry,gest,0.009143001,0.02181989,1.009185,0.9669358,1.05328,"1.01 (95% CI 0.97, 1.05)",60462,652,link-unit-specific linear trends added
+inst090,heat,t1,0.02697367,0.01001313,1.027341,1.007375,1.047702,"1.03 (95% CI 1.01, 1.05)",22652,245,link units with institutional share >= 0.90 in every primary financial year
+inst090,heat,t2,0.009426396,0.008430127,1.009471,0.9929288,1.026289,"1.01 (95% CI 0.99, 1.03)",22652,245,link units with institutional share >= 0.90 in every primary financial year
+inst090,heat,t3,-0.0006198724,0.00776141,0.9993803,0.9842927,1.014699,"1.00 (95% CI 0.98, 1.01)",22652,245,link units with institutional share >= 0.90 in every primary financial year
+inst090,heat,gest,0.03578019,0.02263302,1.036428,0.991457,1.083439,"1.04 (95% CI 0.99, 1.08)",22652,245,link units with institutional share >= 0.90 in every primary financial year
+inst090,dry,t1,0.001290315,0.01825208,1.001291,0.9661047,1.037759,"1.00 (95% CI 0.97, 1.04)",22652,245,link units with institutional share >= 0.90 in every primary financial year
+inst090,dry,t2,0.01065793,0.01771275,1.010715,0.9762287,1.046419,"1.01 (95% CI 0.98, 1.05)",22652,245,link units with institutional share >= 0.90 in every primary financial year
+inst090,dry,t3,-0.0269784,0.01376438,0.9733823,0.9474737,0.9999993,"0.97 (95% CI 0.95, 1.00)",22652,245,link units with institutional share >= 0.90 in every primary financial year
+inst090,dry,gest,-0.01503015,0.04524333,0.9850822,0.9014908,1.076425,"0.99 (95% CI 0.90, 1.08)",22652,245,link units with institutional share >= 0.90 in every primary financial year
+align39,heat,t1,0.01965936,0.006582534,1.019854,1.006781,1.033097,"1.02 (95% CI 1.01, 1.03)",60462,652,gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)
+align39,heat,t2,0.01122922,0.005480327,1.011293,1.000488,1.022214,"1.01 (95% CI 1.00, 1.02)",60462,652,gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)
+align39,heat,t3,0.01288586,0.005107881,1.012969,1.002879,1.023161,"1.01 (95% CI 1.00, 1.02)",60462,652,gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)
+align39,heat,gest,0.04377444,0.01477308,1.044747,1.01493,1.075439,"1.04 (95% CI 1.01, 1.08)",60462,652,gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)
+align39,dry,t1,-0.002371868,0.009765383,0.9976309,0.9787181,1.016909,"1.00 (95% CI 0.98, 1.02)",60462,652,gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)
+align39,dry,t2,-0.006404925,0.01109799,0.9936155,0.9722361,1.015465,"0.99 (95% CI 0.97, 1.02)",60462,652,gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)
+align39,dry,t3,-0.01889351,0.008951634,0.9812839,0.9642175,0.9986523,"0.98 (95% CI 0.96, 1.00)",60462,652,gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)
+align39,dry,gest,-0.0276703,0.02565381,0.972709,0.9250099,1.022868,"0.97 (95% CI 0.93, 1.02)",60462,652,gestational alignment at 39 weeks (weeks 1-39; the third block is weeks 28-39)
+cluster2,heat,t1,0.01885195,0.009364776,1.019031,1.000497,1.037907,"1.02 (95% CI 1.00, 1.04)",60462,652,standard errors clustered two-way by link unit and year-month
+cluster2,heat,t2,0.01245356,0.008541686,1.012531,0.9957213,1.029625,"1.01 (95% CI 1.00, 1.03)",60462,652,standard errors clustered two-way by link unit and year-month
+cluster2,heat,t3,0.01347786,0.008901378,1.013569,0.9960393,1.031407,"1.01 (95% CI 1.00, 1.03)",60462,652,standard errors clustered two-way by link unit and year-month
+cluster2,heat,gest,0.04478338,0.01796505,1.045801,1.009618,1.083281,"1.05 (95% CI 1.01, 1.08)",60462,652,standard errors clustered two-way by link unit and year-month
+cluster2,dry,t1,-0.002403806,0.01220601,0.9975991,0.9740164,1.021753,"1.00 (95% CI 0.97, 1.02)",60462,652,standard errors clustered two-way by link unit and year-month
+cluster2,dry,t2,-0.005496774,0.01226417,0.9945183,0.9708978,1.018713,"0.99 (95% CI 0.97, 1.02)",60462,652,standard errors clustered two-way by link unit and year-month
+cluster2,dry,t3,-0.01968373,0.00913626,0.9805087,0.9631073,0.9982246,"0.98 (95% CI 0.96, 1.00)",60462,652,standard errors clustered two-way by link unit and year-month
+cluster2,dry,gest,-0.02758431,0.0270987,0.9727927,0.9224734,1.025857,"0.97 (95% CI 0.92, 1.03)",60462,652,standard errors clustered two-way by link unit and year-month
+ipw,heat,t1,0.01972216,0.006637143,1.019918,1.006736,1.033272,"1.02 (95% CI 1.01, 1.03)",60462,652,inverse probability of inclusion weights (stabilised)
+ipw,heat,t2,0.01339675,0.005660582,1.013487,1.002305,1.024794,"1.01 (95% CI 1.00, 1.02)",60462,652,inverse probability of inclusion weights (stabilised)
+ipw,heat,t3,0.01461063,0.005491952,1.014718,1.003854,1.025699,"1.01 (95% CI 1.00, 1.03)",60462,652,inverse probability of inclusion weights (stabilised)
+ipw,heat,gest,0.04772955,0.01533903,1.048887,1.017823,1.080899,"1.05 (95% CI 1.02, 1.08)",60462,652,inverse probability of inclusion weights (stabilised)
+ipw,dry,t1,-0.003037851,0.009863682,0.9969668,0.977878,1.016428,"1.00 (95% CI 0.98, 1.02)",60462,652,inverse probability of inclusion weights (stabilised)
+ipw,dry,t2,-0.00664526,0.01130322,0.9933768,0.9716116,1.01563,"0.99 (95% CI 0.97, 1.02)",60462,652,inverse probability of inclusion weights (stabilised)
+ipw,dry,t3,-0.0203052,0.009687813,0.9798996,0.961469,0.9986834,"0.98 (95% CI 0.96, 1.00)",60462,652,inverse probability of inclusion weights (stabilised)
+ipw,dry,gest,-0.02998831,0.0266571,0.9704569,0.9210552,1.022508,"0.97 (95% CI 0.92, 1.02)",60462,652,inverse probability of inclusion weights (stabilised)

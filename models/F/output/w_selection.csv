@@ -1,0 +1,3 @@
+group,n,n_units,inst_share_mean,inst_share_n,lb_median,lb_n,tb_median,tb_n
+included,60465,653,0.8816695,58133,2098,60465,2132,60465
+excluded,1950,198,0.8836402,1157,1239,1682,652.5,1226
